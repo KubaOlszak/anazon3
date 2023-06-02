@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HelloController!
+{% endblock %}
+
+{% block liste %}
+  <div class="example-wrapper">
+    <h1>Hello
+      {{ mixing }}!</h1>
+    <hr/>
+    <ul>
+      {% for key, value in cameras %}
+        <li>{{key}}
+          -
+          {{ parent()|upper }}</li>
+        <ul>
+          {% for item in value %}
+            <li>
+              {{ loop.last ? item|upper  : item }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+{% block footer %}
+  {% include "hello/_footer.html.twig" %}
+{% endblock %}

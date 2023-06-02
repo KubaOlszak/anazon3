@@ -5,11 +5,9 @@
 
   <section>
     {% for book in author.books %}
-      <div>
-        <h3>{{book.title}}</h3>
-      </div>
-      <div>
-        <p>{{book.description | raw}}</p>
+      <div data-controller="accordeon">
+        <h3 data-action="click->accordeon#toggle">{{book.title}}</h3>
+        <p data-accordeon-target="body" style="display: none;">{{book.description | raw}}</p>
       </div>
     {% endfor %}
   </section>

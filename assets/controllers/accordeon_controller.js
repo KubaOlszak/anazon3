@@ -6,6 +6,16 @@ import { Controller } from '@hotwired/stimulus';
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['body']
-    // ...
+    static targets = ['body'];
+
+    toggle() {
+        const el = this.bodyTarget;
+        console.log(this);
+
+        if (el.ownerDocument.defaultView.getComputedStyle(el, null).display === 'none') {
+            el.style.display = '';
+        } else {
+            el.style.display = 'none';
+        }
+    }
 }

@@ -5,10 +5,12 @@
 
   <section>
     {% for book in author.books %}
-      <div data-controller="accordeon">
+      <div data-controller="accordeon color">
         <h3 data-action="click->accordeon#toggle">{{book.title}}</h3>
-        <p data-accordeon-target="body" style="display: none;">{{book.description | raw}}</p>
+        <p data-action="click->color#colorize">on click</p>
+        <p data-accordeon-target="body" style=" display: none;">{{book.description | raw}}</p>
       </div>
     {% endfor %}
+    <a href="{{path('app_author')}}" class="btn btn-warning">Back</a>
   </section>
 {% endblock %}

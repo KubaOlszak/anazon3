@@ -10,7 +10,9 @@
     {{ encore_entry_link_tags('app') }}
     {{ encore_entry_script_tags('app') }}
   </head>
-  <body>
-    {% block body %}{% endblock %}
-  </body>
-</html>
+  <main id="swup">
+    <body {{ stimulus_controller('symfony/ux-swup/swup', { animateHistoryBrowsing: true, theme: 'slide', } ) }}> {% block body %}{% endblock %}
+
+      </body>
+    </main>
+  </html>

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\BookRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book
@@ -15,6 +16,11 @@ class Book
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(
+        min: 2,
+        minMessage: 'Le titre doit avoir au moins {{ limit }} caractères',
+    )]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1>{{title}}</h1>
+    <br>
+    <table class="table table-striped table-sucess">
+      <tr>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>Auteur</td>
+        <td>Action</td>
+      </tr>
+      {% for book in books %}
+        <tr>
+          <td>
+            {{ book.title }}
+          </td>
+          <td>
+            {{ book.description | raw}}
+          </td>
+          <td>
+            {{ book.author.name }}
+          </td>
+          <td>
+            <a href="#" class="btn btn-success">Voir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

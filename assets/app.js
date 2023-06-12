@@ -9,6 +9,10 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 import './bootstrap';
+import a2lix_lib from '@a2lix/symfony-collection/dist/a2lix_sf_collection.min';
+
+a2lix_lib.sfCollection.init();
+
 
 const $ = require('jquery');
 // this "modifies" the jquery module: adding behavior to it

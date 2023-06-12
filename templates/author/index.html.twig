@@ -4,28 +4,15 @@
 {% endblock %}
 
 {% block body %}
-  <style>
-    .example-wrapper {
-      margin: 1em auto;
-      max-width: 800px;
-      width: 95%;
-      font: 18px / 1.5 sans-serif;
-    }
-    .example-wrapper code {
-      background: #F5F5F5;
-      padding: 2px 6px;
-    }
-  </style>
-
-  <div class="example-wrapper">
+  <div class="example-wrapper container">
     <h1>
       {{ title }}
     </h1>
-
-    <table>
+    <a href="{{ path('app_author_new') }}">Nouveau</a>
+    <table class="table table-striped">
       <thead>
         <td>Nom</td>
-        <td>Action</td>
+        <td colspan="2">Action</td>
       </thead>
       <tbody>
         {% for author in authors %}
@@ -33,6 +20,9 @@
             <td>{{author.name}}</td>
             <td>
               <a href="{{ path('app_author_show', {id:author.id}) }}" class="btn btn-primary">Voir</a>
+            </td>
+            <td>
+              <a href="{{ path('app_author_edit', {id:author.id}) }}" class="btn btn-info">Edit</a>
             </td>
           </tr>
         {% else %}

@@ -10,6 +10,8 @@
         <p data-action="click->color#colorize">on click</p>
         <p data-accordeon-target="body" style=" display: none;">{{book.description | raw}}</p>
       </div>
+    {% else %}
+      <p>Cet auteur n'a pas de livres</p>
     {% endfor %}
     <a href="{{path('app_author')}}" class="btn btn-warning">Back</a>
   </section>

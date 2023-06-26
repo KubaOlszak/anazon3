@@ -25,11 +25,11 @@ class Author
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Book::class, orphanRemoval: true, cascade: ['persist'])]
-    #[Assert\Valid]
-    #[Assert\Count(
+    #[Assert\Valid()]
+    /* #[Assert\Count(
         min: 1,
         minMessage: 'Minimum {{ limit }} livre',
-    )]
+    )] */
     private Collection $books;
 
     public function __construct()
@@ -82,5 +82,10 @@ class Author
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
